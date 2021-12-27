@@ -9,19 +9,34 @@ export writecfl
 export initBart
 
 """
-    bart = initBart(pathtobart::String,pathtobartpy::String)
+    initBart(path2bart::String="",path2bartpy::String="")
 
 Initialize the installation of bart and to bartpy in order to make it available 
-from the bartpy package through PyCall and store the path in a config file
+from the bartpy package through PyCall and store the path in a config file.
 
-## Input Parameters
+### Input Parameters
 - 
 
-## output
+### output
 
-# Example
+## Example
+```julia
+bartpy = BartIO.initBart(path2bartFolder,path2bartpyFolder)
+bartpy.version()
+k_phant = bartpy.phantom(x=64,k=1)
+```
+
+If you need help for the function you can either use :
+```
+run(`bart pics -h`)
+```
+
+or import with pycall the help function :
+```julia
+pyhelp = pybuiltin("help")
+pyhelp(bartpy.phantom)
+```
 """
-
 function initBart(path2bart::String="",path2bartpy::String="")
     println(pwd())
     conf = ConfParser.ConfParse("confs/config.ini")
