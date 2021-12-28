@@ -44,6 +44,7 @@ jobs:
       - run: |
               git clone https://github.com/mrirecon/bartpy
               cd bartpy
+              git checkout 83ba894707f8aae2edc156bd9c31ac478a4bd966
               ls -l setup.*
               pip install numpy
       - uses: julia-actions/julia-runtest@v1

@@ -9,17 +9,19 @@ export writecfl
 export initBart
 
 """
-    initBart(path2bart::String="",path2bartpy::String="")
+    pybart::PyObject = initBart(path2bart::String="",path2bartpy::String="")
 
 Initialize the installation of bart and to bartpy in order to make it available 
 from the bartpy package through PyCall and store the path in a config file.
 
 ### Input Parameters
-- 
+- path2bart : path to the BART folder
+- path2bartpy : path to the bartpy folder
 
 ### output
+- pybart : a wrapper to call bart from Julia through the python bartpy toolbox (see Example to learn how to use it)
 
-## Example
+# Example
 ```julia
 bartpy = BartIO.initBart(path2bartFolder,path2bartpyFolder)
 bartpy.version()
