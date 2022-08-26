@@ -32,7 +32,10 @@ jobs:
               /opt/local/bin/port version
       - name: Install BART
         run: |
-              sudo /opt/local/bin/port install fftw-3-single gcc10 libpng openblas
+              sudo /opt/local/bin/port install -N fftw-3-single 
+              sudo /opt/local/bin/port install -N gcc10 
+              sudo /opt/local/bin/port install -N libpng 
+              sudo /opt/local/bin/port install -N openblas
               git clone https://github.com/mrirecon/bart
               cd bart
               git checkout 7aeae14c58b4358fa9e84900b65a38add258607c
