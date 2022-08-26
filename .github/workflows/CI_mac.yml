@@ -39,7 +39,7 @@ jobs:
               sudo /opt/local/bin/port install -N openblas
               sudo /opt/local/bin/port -q contents gcc10 | grep -E '/s?bin/'
               sudo /opt/local/bin/port select --set gcc mp-gcc10
-              brew install libopenmp
+              brew install libomp
       - name: Install BART
         run: |        
               git clone https://github.com/mrirecon/bart
