@@ -37,7 +37,7 @@ jobs:
               sudo /opt/local/bin/port install -N gcc10
               sudo /opt/local/bin/port install -N libpng 
               sudo /opt/local/bin/port install -N openblas
-              port -q contents gcc10 | grep -E '/s?bin/'
+              sudo /opt/local/bin/port -q contents gcc10 | grep -E '/s?bin/'
       - name: Install BART
         run: |        
               git clone https://github.com/mrirecon/bart
