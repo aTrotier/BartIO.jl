@@ -31,7 +31,7 @@ end
         pathtobart = "/home/runner/work/BartIO.jl/BartIO.jl/bart"
     end
 
-    bart = BartIO.wrapperBart(pathtobart)
+    bart = BartIO.wrapper_bart(pathtobart)
     phant = bart(1,"phantom")
     @test size(phant) == (128, 128)
 end
