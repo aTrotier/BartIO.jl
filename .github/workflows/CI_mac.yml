@@ -44,6 +44,7 @@ jobs:
         run: |        
               git clone https://github.com/mrirecon/bart
               cd bart
+              git checkout 7aeae14c58b4358fa9e84900b65a38add258607c
               CC=gcc-10 make
       - name: Test BART
         run: |
