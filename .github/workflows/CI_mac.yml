@@ -31,15 +31,18 @@ jobs:
               sudo make install
               /opt/local/bin/port version
               sudo /opt/local/bin/port -v -N selfupdate
-      - name: Install BART
+      - name: Install BART dependency
         run: |
               sudo /opt/local/bin/port install -N fftw-3-single 
               sudo /opt/local/bin/port install -N gcc10
               sudo /opt/local/bin/port install -N libpng 
               sudo /opt/local/bin/port install -N openblas
-              sudo ln -s /opt/local/bin/gcc-mp-10 /usr/bin/gcc-mp-10
+              port -q contents gcc10 | grep -E '/s?bin/'
+      - name: Install BART
+        run: |        
               git clone https://github.com/mrirecon/bart
               cd bart
+              make
       - name: Test BART
         run: |
               cd bart
