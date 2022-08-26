@@ -25,7 +25,11 @@
 end
 
 @testset "BART" begin
-    pathtobart = "/home/runner/work/BartIO.jl/BartIO.jl/bart"
+    if Sys.isapple
+        pathtobart ="/Users/runner/work/BartIO.jl/BartIO.jl/bart"
+    else
+        pathtobart = "/home/runner/work/BartIO.jl/BartIO.jl/bart"
+    end
 
     bart = BartIO.wrapperBart(pathtobart)
     phant = bart(1,"phantom")
