@@ -30,6 +30,7 @@ jobs:
               cd macports-base 
               sudo make install
               /opt/local/bin/port version
+              sudo /opt/local/bin/port -v -N selfupdate
       - name: Install BART
         run: |
               sudo /opt/local/bin/port install -N fftw-3-single 
