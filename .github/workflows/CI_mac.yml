@@ -39,7 +39,7 @@ jobs:
               sudo /opt/local/bin/port install -N openblas
               git clone https://github.com/mrirecon/bart
               cd bart
-              make
+              CC=gcc make
       - name: Test BART
         run: |
               cd bart
