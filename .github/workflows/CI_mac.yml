@@ -29,12 +29,16 @@ jobs:
               make test
       - name: Install BART
         run: |
+              sudo port install fftw-3-single gcc10 libpng openblas
               git clone https://github.com/mrirecon/bart
               cd bart
               git checkout 7aeae14c58b4358fa9e84900b65a38add258607c
+              make
       - run: |
               cd bart
               pwd
+              ls -l bart
+              ./bart version
       - uses: julia-actions/julia-runtest@v1
       - uses: julia-actions/julia-processcoverage@v1
       - uses: codecov/codecov-action@v1
