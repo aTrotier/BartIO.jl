@@ -25,7 +25,7 @@
 end
 
 @testset "BART" begin
-    if Sys.isapple
+    if Sys.isapple()
         pathtobart ="/Users/runner/work/BartIO.jl/BartIO.jl/bart"
     else
         pathtobart = "/home/runner/work/BartIO.jl/BartIO.jl/bart"
