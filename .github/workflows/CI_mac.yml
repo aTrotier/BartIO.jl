@@ -37,9 +37,9 @@ jobs:
               sudo /opt/local/bin/port install -N gcc10
               sudo /opt/local/bin/port install -N libpng 
               sudo /opt/local/bin/port install -N openblas
+              sudo ln -s /opt/local/bin/gcc-mp-10 /usr/bin/gcc-mp-10
               git clone https://github.com/mrirecon/bart
               cd bart
-              CC=gcc make
       - name: Test BART
         run: |
               cd bart
