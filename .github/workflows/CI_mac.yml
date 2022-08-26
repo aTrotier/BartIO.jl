@@ -18,26 +18,27 @@ jobs:
           - x64          
     steps:
       - uses: actions/checkout@v2
-      - name: Install MacPorts
+      - name: Build MacPorts
         run: |
               git clone https://github.com/macports/macports-base
               cd macports-base
               set -eu
               ./configure
               make -j$(sysctl -n hw.activecpu)
-      - run:  |     
+      - name: Install MacPorts
+        run:  |     
               cd macports-base 
               sudo make install
-              cd ..
               port version
       - name: Install BART
         run: |
-              port install fftw-3-single gcc10 libpng openblas
+              sudo macports-base/port install fftw-3-single gcc10 libpng openblas
               git clone https://github.com/mrirecon/bart
               cd bart
               git checkout 7aeae14c58b4358fa9e84900b65a38add258607c
               make
-      - run: |
+      - name: Test BART
+        run: |
               cd bart
               pwd
               ls -l bart
