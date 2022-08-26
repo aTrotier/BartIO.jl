@@ -20,9 +20,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install MacPorts
         run: |
-              sudo mkdir /opt/local.old
-              sudo mv /usr/local/* /opt/local.old
-      - run: |
               git clone https://github.com/macports/macports-base
               cd macports-base
               set -eu
