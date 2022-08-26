@@ -18,7 +18,20 @@ jobs:
           - x64          
     steps:
       - uses: actions/checkout@v2
+      - name: Install MacPorts
+        run: |
+              sudo mkdir /opt/local.old
+              sudo mv /usr/local/* /opt/local.old
       - run: |
+              git clone https://github.com/macports/macports-base
+              cd macports-base
+              set -eu
+              ./configure
+              make -j$(sysctl -n hw.activecpu)
+              sudo make install
+              make test
+      - name: Install BART
+        run: |
               git clone https://github.com/mrirecon/bart
               cd bart
               git checkout 7aeae14c58b4358fa9e84900b65a38add258607c
