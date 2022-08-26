@@ -13,7 +13,7 @@ jobs:
           - '1' # Leave this line unchanged. '1' will automatically expand to the latest stable 1.x release of Julia.
           #- 'nightly'
         os:
-          - macOS-latest
+          - macos-12
         arch:
           - x64          
     steps:
@@ -34,12 +34,11 @@ jobs:
       - name: Install BART
         run: |
               sudo /opt/local/bin/port install -N fftw-3-single 
-              sudo /opt/local/bin/port install -N gcc6
+              sudo /opt/local/bin/port install -N gcc10
               sudo /opt/local/bin/port install -N libpng 
               sudo /opt/local/bin/port install -N openblas
               git clone https://github.com/mrirecon/bart
               cd bart
-              git checkout tags/v0.7.00
               make
       - name: Test BART
         run: |
